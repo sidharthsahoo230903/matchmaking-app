@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Matches</title>
+</head>
+<body>
+  <h1>Matches for {{ user_id }}</h1>
+  {% if error %}
+    <p style="color: red;">{{ error }}</p>
+  {% else %}
+    <table border="1">
+      <tr>
+        <th>USER ID</th><th>AGE</th><th>GENDER</th><th>LOCATION</th><th>PERSONALITY</th><th>LIKES AND DISLIKES</th>
+      </tr>
+      {% for row in results %}
+        <tr>
+          <td>{{ row["USER ID"] }}</td>
+          <td>{{ row["AGE"] }}</td>
+          <td>{{ row["GENDER"] }}</td>
+          <td>{{ row["LOCATION"] }}</td>
+          <td>{{ row["PERSONALITY"] }}</td>
+          <td>{{ row["LIKES AND DISLIKES"] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  <br><a href="/">Search again</a>
+</body>
+</html>
